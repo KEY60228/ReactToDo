@@ -21,6 +21,11 @@ function TodoList() {
   return (
     <div>
       <h1>Todo List</h1>
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={ index }>{ todo.task }</li>
+        ))}
+      </ul>
     </div>
   );
 }
