@@ -23,10 +23,19 @@ function TodoList() {
     setTask(event.target.value);
   }
 
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    if(task === '') return;
+    setTodo(todos => [...todos, { task, isCompleted: false}]);
+    setTask('');
+  }
+
   return (
     <div>
       <h1>Todo List</h1>
-      Add Task : <input value={ task } placeholder="Add New Task" onChange={ handleNewTask }/>
+      <form onSubmit={ handleSubmit }>
+        Add Task : <input value={ task } placeholder="Add New Task" onChange={ handleNewTask }/>
+      </form>
       <ul>
         {todos.map((todo, index) => (
           <li key={ index }>{ todo.task }</li>
