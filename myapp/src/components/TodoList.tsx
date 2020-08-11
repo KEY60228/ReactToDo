@@ -17,10 +17,16 @@ function TodoList() {
   ];
 
   const [todos, setTodo] = useState(initialState);
+  const [task, setTask] = useState('');
+
+  const handleNewTask = (event: any) => {
+    setTask(event.target.value);
+  }
 
   return (
     <div>
       <h1>Todo List</h1>
+      Add Task : <input value={ task } placeholder="Add New Task" onChange={ handleNewTask }/>
       <ul>
         {todos.map((todo, index) => (
           <li key={ index }>{ todo.task }</li>
