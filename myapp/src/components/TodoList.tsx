@@ -30,6 +30,12 @@ function TodoList() {
     setTask('');
   }
 
+  const handleRemoveTask = (index: any) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodo(newTodos);
+  }
+
   return (
     <div>
       <h1>Todo List</h1>
@@ -38,7 +44,7 @@ function TodoList() {
       </form>
       <ul>
         {todos.map((todo, index) => (
-          <li key={ index }>{ todo.task }</li>
+          <li key={ index }>{ todo.task } <span onClick={ () => handleRemoveTask(index) }>X</span></li>
         ))}
       </ul>
     </div>
